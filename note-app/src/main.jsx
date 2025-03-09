@@ -13,7 +13,7 @@ const darkTheme = createTheme({
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline /> {/* Resets default browser styles */}
+      <CssBaseline /> 
       <App />
     </ThemeProvider>
   </React.StrictMode>
