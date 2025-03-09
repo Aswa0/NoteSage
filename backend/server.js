@@ -9,7 +9,8 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 
 const allowedOrigins = [
-    process.env.VITE_FRONTEND_URL || "*",
+    process.env.VITE_FRONTEND_URL,
+    "https://notesage.vercel.app"
 ];
 
 const app = express();
@@ -19,7 +20,10 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: allowedOrigins,
+        origin: [process.env.VITE_FRONTEND_URL,
+            "https://notesage.vercel.app"
+        ],
+        methods:["GET", "POST", "PUT", "DELETE"],
         credentials: true
     }
 });
