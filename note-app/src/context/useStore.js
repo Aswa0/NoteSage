@@ -24,11 +24,11 @@ export const useStore = create((set) => ({
 
     setNotes: (notes) => {
         console.log("Updating notes in store:", notes);
-        set((state) => ({ notes: [...notes] }));  // 🔥 Ensures state updates
+        set((state) => ({ notes: [...notes] }));  
     },
 
     setTasks: (tasks) => {
         console.log("Updating tasks in store:", tasks);
-        set((state) => ({ tasks: [...tasks] }));  // 🔥 Ensures state updates
+        set((state) => ({ tasks: [...tasks] }));  
     },
 }));

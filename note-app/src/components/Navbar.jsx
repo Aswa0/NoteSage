@@ -42,11 +42,11 @@ const Navbar = () => {
     );
 };
 
-// Glassmorphic Navbar Styles
+
 const navbarStyles = {
-    background: "rgba(255, 255, 255, 0.15)", // Semi-transparent glass effect
-    backdropFilter: "blur(12px)", // Smooth blur effect
-    WebkitBackdropFilter: "blur(12px)", // Safari support
+    background: "rgba(255, 255, 255, 0.15)", 
+    backdropFilter: "blur(12px)", 
+    WebkitBackdropFilter: "blur(12px)", 
     borderRadius: "12px",
     width: "95%",
     maxWidth: "1300px",
@@ -54,15 +54,15 @@ const navbarStyles = {
     border: "1px solid rgba(255, 255, 255, 0.2)",
 };
 
-// Stylish Logo Text
+
 const logoTextStyles = {
     fontWeight: "bold",
     color: "#fff",
 };
 
-// Stylish Logout Button
+
 const logoutButtonStyles = {
-    background: "linear-gradient(45deg, #ff4081, #ff80ab)", // Beautiful gradient
+    background: "linear-gradient(45deg, #ff4081, #ff80ab)", 
     color: "white",
     fontWeight: "bold",
     padding: "8px 20px",

@@ -128,7 +128,7 @@ const Dashboard = () => {
     );
 };
 
-// Glassmorphic Styles
+
 const glassContainerStyles = {
     background: "rgba(255, 255, 255, 0.2)",
     backdropFilter: "blur(10px)",
@@ -146,7 +146,7 @@ const headerStyles = {
     mb: 2,
 };
 
-// Stylish Create Button
+
 const createButtonStyles = {
     background: "linear-gradient(45deg, #ff4081, #ff80ab)",
     color: "white",

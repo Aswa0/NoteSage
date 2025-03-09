@@ -49,7 +49,7 @@ const TaskCard = ({ task }) => {
     );
 };
 
-// Glassmorphic Styling
+
 const glassCardStyles = {
     borderRadius: 3,
     background: "rgba(255, 255, 255, 0.2)",
