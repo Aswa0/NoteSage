@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { useEffect, useState } from "react";
 import { useStore } from "./context/useStore";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { CircularProgress, Box } from "@mui/material";
 
@@ -35,6 +36,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={!user ? <Login onAuthSuccess={handleAuthTransition} /> : <Navigate to="/dashboard" />} />
+        <Route path="/signup" element={<Signup onAuthSuccess={handleAuthTransition} />} />
         <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />} />
       </Routes>
     </Router>

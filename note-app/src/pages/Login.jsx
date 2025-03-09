@@ -45,10 +45,10 @@ const Login = ({ onAuthSuccess }) => {
                     <TextField fullWidth label="Password" name="password" type="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} margin="normal" sx={{ background: "rgba(255, 255, 255, 0.1)", borderRadius: "8px", color: "#fff" }} />
                     <Button fullWidth type="submit" variant="contained" sx={{ mt: 2, background: "linear-gradient(45deg, #ff4081, #ff80ab)" }}>Login</Button>
                 </form>
+                <Typography variant="body2" sx={{ mt: 2, textAlign: "center", color: "#fff", cursor: "pointer" }} onClick={() => navigate("/signup")}>
+                    Don't have an account? Sign Up
+                </Typography>
             </Container>
-            <Box sx={{ position: "absolute", bottom: 20, right: 30 }}>
-                <Typography variant="h6" sx={{ color: "#fff" }}>Made by Aswa0</Typography>
-            </Box>
         </Box>
     );
 };
