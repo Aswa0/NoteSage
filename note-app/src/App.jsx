@@ -25,8 +25,8 @@ const App = () => {
 
   if (loading || transitioning) {
     return (
-      <Box sx={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center" }}>
-        <CircularProgress />
+      <Box sx={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }}>
+        <CircularProgress sx={{ color: "#fff" }} />
       </Box>
     );
   }
