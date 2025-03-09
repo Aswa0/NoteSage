@@ -1,4 +1,3 @@
-// Filename: profile.js
 const express = require("express");
 const { ToDo, Notes, User } = require("../models/index");
 const authMiddleware = require("../middleware/authMiddleware");
@@ -20,8 +19,6 @@ userRouter.get("/home", async (req, res) => {
         const notes = await Notes.find({ author: userName });
         const tasks = await ToDo.find({ author: userName });
 
-        console.log("User login to home successful");
-
         return res.status(200).json({
             message: `Hello, ${userName}!`,
             userName,
@@ -42,7 +39,7 @@ userRouter.post("/home/add-note", async (req, res) => {
 
         if (noteUpload) {
             console.log("Note Added");
-            req.app.get("io").emit("noteUpdated"); // Emit event
+            req.app.get("io").emit("noteUpdated"); 
             return res.status(200).json({ message: "Note Added", note: noteUpload });
         }
     } catch (error) {
@@ -60,7 +57,7 @@ userRouter.post("/home/add-task", async (req, res) => {
             return res.status(400).json({ message: "Add Failed" });
         }
 
-        req.app.get("io").emit("taskUpdated"); // Emit event
+        req.app.get("io").emit("taskUpdated"); 
 
         res.status(200).json({ message: "Task added successfully", newTask });
     } catch (error) {
@@ -79,7 +76,7 @@ userRouter.put("/home/task-done", async (req, res) => {
             return res.status(400).json({ message: "Update Failed" });
         }
 
-        req.app.get("io").emit("taskUpdated"); // Emit event
+        req.app.get("io").emit("taskUpdated"); 
         console.log("Update Done");
         return res.status(200).json({ message: "Update Done" });
     } catch (error) {
@@ -97,7 +94,7 @@ userRouter.delete("/home/delete-task", async (req, res) => {
             return res.status(400).json({ message: "Deletion Failed" });
         }
 
-        req.app.get("io").emit("taskUpdated"); // Emit event
+        req.app.get("io").emit("taskUpdated"); 
         console.log("Deletion Done");
         return res.status(200).json({ message: "Deletion Done" });
     } catch (error) {
@@ -110,7 +107,7 @@ userRouter.delete("/home/delete-note", async (req, res) => {
         const { id, userName } = req.body;
         const deletedNote = await Notes.findOneAndDelete({ _id: id });
 
-        req.app.get("io").emit("noteUpdated"); // Emit event
+        req.app.get("io").emit("noteUpdated");
         console.log("Note Deleted");
         return res.status(200).json({ message: "Note deleted successfully" });
     } catch (error) {

@@ -31,7 +31,7 @@ const io = new Server(httpServer, {
 app.set("io", io);
 
 app.use(cors({
-    origin: ["https://notesage.vercel.app"],  // ✅ Make sure this is the deployed frontend URL
+    origin: ["https://notesage.vercel.app"],  
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
