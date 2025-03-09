@@ -8,13 +8,18 @@ const { userRouter, authRouter } = require("./routers/index");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 
+const allowedOrigins = [
+    process.env.VITE_FRONTEND_URL || "*",
+];
+
 const app = express();
 dotenv.config();
 
 const httpServer = createServer(app);
+
 const io = new Server(httpServer, {
     cors: {
-        origin: process.env.VITE_FRONTEND_URL,
+        origin: allowedOrigins,
         credentials: true
     }
 });
@@ -22,9 +27,17 @@ const io = new Server(httpServer, {
 app.set("io", io);
 
 app.use(cors({
-    origin: process.env.VITE_FRONTEND_URL,
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
     credentials: true
 }));
+
+
 app.use(express.json());
 app.use(cookieparser());
 
