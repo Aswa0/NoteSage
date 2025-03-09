@@ -31,16 +31,11 @@ const io = new Server(httpServer, {
 app.set("io", io);
 
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error("Not allowed by CORS"));
-        }
-    },
+    origin: ["https://notesage.vercel.app"],  // ✅ Make sure this is the deployed frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
 }));
-
 
 app.use(express.json());
 app.use(cookieparser());
